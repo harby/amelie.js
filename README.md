@@ -41,9 +41,9 @@ Example
 =========
 
 ```
-var Pages = Amelie.extend();
+var Page = Amelie.extend();
 
-var Homepage = Pages.extend({
+var Homepage = Page.extend({
   modal: {},
 
   el: '.homepage',
