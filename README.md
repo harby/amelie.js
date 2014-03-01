@@ -43,7 +43,7 @@ Example
 ```
 var Pages = Amelie.extend();
 
-var Homepage = Page.extend({
+var Homepage = Pages.extend({
   modal: {},
 
   el: '.homepage',
