@@ -1,7 +1,7 @@
 Amelie.JS
 =========
 
-Minimalistic lib for organising Javascript code in your applications.
+Minimalistic lib for organising Javascript code in your applications. The idea behind this, is to create a simple way to organise Javascript code in applications like Wordpress. Since WP already handles Templates, Routing and Data, only thing missing is organisation and event handling. Exactly what Amelie.JS provides.
 
 Syntax
 =========
