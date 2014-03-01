@@ -22,6 +22,8 @@ var delegateEvents = function(obj) {
 function Amelie() {}
 
 Amelie.extend = function(obj) {
+  obj || (obj = {});
+
   delegateEvents(obj);
 
   if (obj.initialize !== undefined) {
