@@ -27,5 +27,5 @@ Amelie.extend = function(obj) {
   if (obj.initialize !== undefined) {
     obj.initialize();
   }
-  return $.extend({}, obj, Class);
+  return $.extend({}, obj, Amelie);
 };
