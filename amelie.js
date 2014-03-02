@@ -1,33 +1,37 @@
-var delegateEventSplitter = /^(\S+)\s*(.*)$/;
+(function() {
+  var delegateEventSplitter = /^(\S+)\s*(.*)$/;
 
-var delegateEvents = function(obj) {
+  var delegateEvents = function(obj) {
 
-  if (obj.events !== undefined) {
-    var $el = $(obj.el || document);
+    if (obj.events !== undefined) {
+      var $el = $(obj.el || document);
 
-    for (var key in obj.events) {
-      var match = key.match(delegateEventSplitter);
-      var eventName = match[1], selector = match[2];
-      var method = obj[obj.events[key]];
+      for (var key in obj.events) {
+        var match = key.match(delegateEventSplitter);
+        var eventName = match[1], selector = match[2];
+        var method = obj[obj.events[key]];
 
-      if (selector === '') {
-        $el.on(eventName, method);
-      } else {
-        $el.on(eventName, selector, method);
+        if (selector === '') {
+          $el.on(eventName, method);
+        } else {
+          $el.on(eventName, selector, method);
+        }
       }
     }
-  }
-};
+  };
 
-function Amelie() {}
+  function Amelie() {}
 
-Amelie.extend = function(obj) {
-  obj || (obj = {});
+  Amelie.extend = function(obj) {
+    obj || (obj = {});
 
-  delegateEvents(obj);
+    delegateEvents(obj);
 
-  if (obj.initialize !== undefined) {
-    obj.initialize();
-  }
-  return $.extend({}, obj, Amelie);
-};
+    if (obj.initialize !== undefined) {
+      obj.initialize();
+    }
+    return $.extend({}, obj, Amelie);
+  };
+
+  window.Amelie = Amelie;
+}());
