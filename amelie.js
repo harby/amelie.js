@@ -9,7 +9,7 @@
       for (var key in obj.events) {
         var match = key.match(delegateEventSplitter);
         var eventName = match[1], selector = match[2];
-        var method = obj[obj.events[key]];
+        var method = $.proxy(obj[obj.events[key]], obj);
 
         if (selector === '') {
           $el.on(eventName, method);
